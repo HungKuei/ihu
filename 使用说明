@@ -1,0 +1,154 @@
+React Native 使用说明
+1、安装nodejs:https://nodejs.org/en/      node -v 
+安装完node后建议设置npm镜像以加速后面的过程（或使用科学上网工具）。注意：不要使用cnpm！cnpm安装的模块路径比较奇怪，
+
+packager不能正常识别！
+
+npm config set registry https://registry.npm.taobao.org --global
+npm config set disturl https://npm.taobao.org/dist --global  
+
+2、Yarn、React Native的命令行工具（react-native-cli）
+Yarn是Facebook提供的替代npm的工具，可以加速node模块的下载。React Native的命令行工具用于执行创建、初始化、更新项目、
+
+运行打包服务（packager）等任务。
+npm install -g yarn react-native-cli
+安装完yarn后同理也要设置镜像源：
+yarn config set registry https://registry.npm.taobao.org --global
+yarn config set disturl https://npm.taobao.org/dist --global
+
+创建项目
+
+进入你的工作目录，运行
+
+react-native init MyProject
+并耐心等待数（或数十）分钟。
+
+cd MyProject
+
+运行packager
+
+react-native start
+可以用浏览器访问http://localhost:8081/index.bundle?platform=android看看是否可以看到打包后的脚本（看到很长的js代码就
+
+对了）。第一次访问通常需要十几秒，并且在packager的命令行可以看到形如[====]的进度条。
+注意老版本（低于0.49）的地址为http://localhost:8081/index.android.bundle?platform=android
+
+react-native run-android
+
+提示：你可以使用--version参数创建指定版本的项目。例如react-native init xxx --version 0.44.3。注意版本号必须精确到两
+
+个小数点。
+
+ReactNative 踩坑之旅: Unable to resolve module 和 Error: Plugin
+
+按照上面教程走下来后安装的是最新的ReactNative(现在是0.56), 这个问题可能是新版本的bug, 降级到0.55即可.
+
+降级流程: 
+1. 在工程目录下执行 E:\ReactNative\Test>npm install --save react-native@0.55.4; 
+2. 然后 E:\ReactNative\Test>react-native upgrade, 这里会提示你要不要覆盖原来的部分文件, 我是一路y, 最后提示 
+
+Successfully upgraded this project to react-native v0.55.4; 
+
+执行 npm install --save-dev babel-preset-react-native@2.1.0 后再次运行即可, 终于看到梦寐以求的界面了
+
+
+夜神模拟器的连接
+安装完成之后运行 需要让adb devices 检测到你的安卓模拟器，所以需要建立连接，夜神的端口号是62001
+# 进入夜神模拟器安装目录的bin目录下执行下面的命令
+nox_adb connect 127.0.0.1:62001
+
+这时候在cmd 中可以用下面命令查看
+adb devices
+## 显示
+List of devices attached
+127.0.0.1:62001 device
+这就说明连接上了
+
+之后连接只需要adb connect 127.0.0.1:62001即可
+
+
+React Native 运行报错：Unable to resolve module 'AccessibilityInfo'
+
+
+可以看到在 异常的返回的JSON 结构中给出了推荐的解决方法 ：
+
+This might be related to https://github.com/facebook/react-native/issues/4968
+
+To resolve try the following: 
+
+1. Clear watchman watches: `watchman watch-del-all`. 
+
+2. Delete the `node_modules` folder: `rm -rf node_modules && npm install`.
+
+3. Reset Metro Bundler cache: `rm -rf /tmp/metro-bundler-cache-*` or `npm start -- --reset-cache`.  
+
+4. Remove haste cache: `rm -rf /tmp/haste-map-react-native-packager-*`."
+
+ 
+
+此方法并不能解决该问题：
+
+问题的原因主要是版本不稳定的问题 ：
+
+ 
+
+目前我所使用的版本：
+
+react-native-cli: 2.0.1
+react-native: 0.56.0
+ 
+
+ 
+
+将版本换为以下版本
+
+react-native 0.55.4 比较稳定，
+
+react-native-cli 1.2.0更稳定，
+
+ 
+
+所以先将旧版卸载：
+
+npm uninstall -g react-native-cli
+ 
+npm uninstall -g react-native
+ 
+
+再装上新版本：
+
+npm install -g react-native@0.55.4
+npm install -g react-native-cli@1.2.0
+ 
+
+再在项目初始化的时候指定 React Native 版本：
+
+react-native init --version="0.55.4" myFirstApp
+ 
+
+最终通过 Genymotion 模拟器成功将项目运行起来了：
+
+react-native run-android
+
+
+
+Github使用
+git clone https://github.com/stoneWeb/elm-react-native.git
+cd elm-react-native && npm install
+react-native link
+react-native run-ios
+
+
+
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/HungKuei/my.git
+git push -u origin master
+
+
+git push错误failed to push some refs to的解决
+这个问题是因为远程库与本地库不一致造成的，那么我们把远程库同步到本地库就可以了。 
+使用指令
+
+git pull --rebase origin master
