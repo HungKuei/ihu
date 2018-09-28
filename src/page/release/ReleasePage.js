@@ -10,20 +10,20 @@ import {NavigationItemTitle} from '../../widget/NavigationItem';
 export default class ReleasePage extends PureComponent{
 
     static navigationOptions = {
-        tabBarLabel: '发布',
+        tabBarLabel: '大学',
         headerTitle:(
             <NavigationItemTitle
-                title = '发布'
+                title = '大学'
             />
         ),
         tabBarIcon: ({focused}) => {
             if (focused) {
                 return (
-                    <Image style = {styles.tabBarIcon} source = {require('./image/release_selected_icon.png')}/>
+                    <Image style = {styles.tabBarIcon} source = {require('./image/college_selected_icon.png')}/>
                 );
             }else{
                 return (
-                    <Image style = {styles.tabBarIcon} source = {require('./image/release_icon.png')}/>
+                    <Image style = {styles.tabBarIcon} source = {require('./image/college_icon.png')}/>
                 );
             }
         }
@@ -32,7 +32,7 @@ export default class ReleasePage extends PureComponent{
     render(){
         return(
             <View style = {styles.container}>
-                <Text style = {{fontSize:14}}>这里是发布页</Text>
+                <Text style = {{fontSize:14}}>这里是大学页</Text>
             </View>
         );
     }
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         alignItems:'center',
     },
     tabBarIcon: {
-        width: 21,
-        height: 21,
+        width: 25,
+        height: 22,
     }
 });
