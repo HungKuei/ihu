@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import {NavigationItemTitle} from '../../widget/NavigationItem';
 
-export default class ReleasePage extends PureComponent{
+export default class CollegePage extends PureComponent{
 
     static navigationOptions = {
         tabBarLabel: '大学',

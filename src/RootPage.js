@@ -2,7 +2,7 @@ import {StackNavigator, TabNavigator, TabBarBottom} from 'react-navigation';
 import themeColor from './widget/color';
 import HomePage from './page/home/HomePage';
 import FindPage from './page/find/FindPage';
-import ReleasePage from './page/release/ReleasePage';
+import CollegePage from './page/college/CollegePage';
 import MessagePage from './page/message/MessagePage';
 import MinePage from './page/mine/MinePage';
 import DetailsPage from './page/home/page/DetailsPage';
@@ -13,7 +13,7 @@ const TabBar = TabNavigator (
     {
         Home: {screen: HomePage },
         Find: {screen: FindPage },
-        Release: {screen: ReleasePage },
+        College: {screen: CollegePage },
         Message: {screen: MessagePage },
         Mine: {screen: MinePage }, 
     },
