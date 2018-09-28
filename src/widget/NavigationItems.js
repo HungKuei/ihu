@@ -11,9 +11,9 @@ import {
 export default class NavigationItemBack extends PureComponent{
     render(){
         let icon = this.props.icon &&
-        <Image style = {styles.icon} source = {this.props.icon}/>
+            <Image style = {styles.icon} source = {this.props.icon}/>
         let text = this.props.text &&
-        <Text style = {styles.text}>{this.props.text}</Text>
+            <Text style = {styles.text}>{this.props.text}</Text>
         return (
             <TouchableOpacity style = {styles.container} onPress={()=>{
                 if(this.props.navigation) {
@@ -39,23 +39,40 @@ export class NavigationItemTitle extends PureComponent{
     }
 }
 
+export class NavigationItem extends PureComponent{
+    render(){
+        let icon = this.props.icon &&
+            <Image style = {styles.icon} source = {this.props.icon}/>
+        let text = this.props.text &&
+            <Text style = {styles.text}>{this.props.text}</Text>
+        return(
+            <TouchableOpacity style = {styles.container}>
+                {icon}
+                {text}
+            </TouchableOpacity>
+        );
+    }
+}
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        paddingLeft:10,
+        paddingRight:10,
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     icon: {
-        width: 25,
-        height: 25,
+        width: 22,
+        height: 22,
     },
     text: {
         fontSize: 15,
         color: '#fff',
     },
     title:{
-        fontSize: 15,
+        fontSize: 18,
         color: '#fff', 
     },
 });

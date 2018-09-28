@@ -7,8 +7,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "antd-mobile-rn": "^2.2.1",
     "react": "16.3.1",
     "react-native": "0.55.4",
+    "react-native-swiper": "^1.5.13",
     "react-navigation": "^1.5.13"
   },
   "devDependencies": {

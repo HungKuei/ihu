@@ -4,8 +4,9 @@ import {
     View,
     Text,
 } from 'react-native';
-import NavigationItemBack from '../../../widget/NavigationItem';
-import NavigationItemTitle from '../../../widget/NavigationItem';
+import {WhiteSpace, WingBlank} from 'antd-mobile-rn';
+import NavigationItemBack from '../../../widget/NavigationItems';
+import NavigationItemTitle from '../../../widget/NavigationItems';
 import themeColor from '../../../widget/color';
 
 
@@ -30,7 +31,7 @@ export default class DetailsPage extends PureComponent{
     render(){
         return(
             <View style = {styles.container}>
-                <Text style = {{fontSize:14}}>这里是详情页</Text>
+                
             </View>
         );
     }
@@ -39,7 +40,6 @@ export default class DetailsPage extends PureComponent{
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor:'#fff',
         justifyContent:'center',
         alignItems:'center',
     },

@@ -5,7 +5,7 @@ import {
     Text,
     Image
 } from 'react-native';
-import {NavigationItemTitle} from '../../widget/NavigationItem';
+import {NavigationItemTitle} from '../../widget/NavigationItems';
 
 
 export default class FindPage extends PureComponent{

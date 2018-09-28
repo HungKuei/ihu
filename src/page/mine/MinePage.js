@@ -5,17 +5,12 @@ import {
     Text,
     Image
 } from 'react-native';
-import {NavigationItemTitle} from '../../widget/NavigationItem';
+import {NavigationItemTitle, NavigationItem} from '../../widget/NavigationItems';
 
 export default class MinePage extends PureComponent{
 
     static navigationOptions = {
         tabBarLabel: '我的',
-        headerTitle:(
-            <NavigationItemTitle
-                title = '我的'
-            />
-        ),
         tabBarIcon: ({focused}) => {
             if (focused) {
                 return (
@@ -26,7 +21,23 @@ export default class MinePage extends PureComponent{
                     <Image style = {styles.tabBarIcon} source = {require('./image/mine_icon.png')}/>
                 );
             }
-        }
+        },
+        headerLeft:(
+            <NavigationItem
+                
+            />
+        ),
+        headerTitle:(
+            <NavigationItemTitle
+                title = '我的'
+            />
+        ),
+        headerRight:(
+            <NavigationItem
+                icon = {require('./image/setup_icon.png')}
+            />
+        )
+       
     }
 
     render(){
@@ -41,8 +52,8 @@ export default class MinePage extends PureComponent{
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        justifyContent:'center',
         alignItems:'center',
+        justifyContent:'center'
     },
     tabBarIcon: {
         width: 22,
