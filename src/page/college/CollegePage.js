@@ -13,7 +13,7 @@ export default class CollegePage extends PureComponent{
         tabBarLabel: '大学',
         headerTitle:(
             <NavigationItemTitle
-                title = '大学'
+                title = '我的大学'
             />
         ),
         tabBarIcon: ({focused}) => {

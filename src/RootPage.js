@@ -1,11 +1,12 @@
 import {StackNavigator, TabNavigator, TabBarBottom} from 'react-navigation';
-import themeColor from './widget/color';
+import color from './widget/color';
 import HomePage from './page/home/HomePage';
 import FindPage from './page/find/FindPage';
 import CollegePage from './page/college/CollegePage';
 import MessagePage from './page/message/MessagePage';
 import MinePage from './page/mine/MinePage';
 import DetailsPage from './page/home/page/DetailsPage';
+import FindDetails from './page/find/page/FindDetails';
 
 
 
@@ -53,13 +54,14 @@ const Navigator = StackNavigator({
             headerStyle: {
                 marginTop:25,
                 height:40,
-                backgroundColor: themeColor.primary,
+                backgroundColor: color.primary,
                 elevation: 0,
                 borderBottomWidth: 0,
             },
         })
     },
     DetailsPage: {screen: DetailsPage },
+    FindDetails: {screen: FindDetails },
     
 },
 

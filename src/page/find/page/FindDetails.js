@@ -2,17 +2,16 @@ import React,{PureComponent} from 'react';
 import {
     StyleSheet,
     View,
-    Text,
+    Text
 } from 'react-native';
-import NavigationItemBack from '../../../widget/NavigationItems';
-import NavigationItemTitle from '../../../widget/NavigationItems';
 import color from '../../../widget/color';
+import NavigationItemBack from '../../../widget/NavigationItems'
 
 
-export default class DetailsPage extends PureComponent{
+export default class FindDetails extends PureComponent{
 
     static navigationOptions = ({navigation}) => ({
-        headerLeft: (
+        headerLeft:(
             <NavigationItemBack
                 icon = {require('../../../image/back_icon.png')}
                 text = '返回'
@@ -27,6 +26,7 @@ export default class DetailsPage extends PureComponent{
             borderBottomWidth: 0,
         },
     });
+
     render(){
         return(
             <View style = {styles.container}>
@@ -39,7 +39,7 @@ export default class DetailsPage extends PureComponent{
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        justifyContent:'center',
         alignItems:'center',
-    },
+        justifyContent:'center'
+    }
 });
