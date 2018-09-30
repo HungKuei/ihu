@@ -7,6 +7,7 @@ import MessagePage from './page/message/MessagePage';
 import MinePage from './page/mine/MinePage';
 import DetailsPage from './page/home/page/DetailsPage';
 import FindDetails from './page/find/page/FindDetails';
+import MyPage from './page/mine/page/MyPage';
 
 
 
@@ -62,6 +63,7 @@ const Navigator = StackNavigator({
     },
     DetailsPage: {screen: DetailsPage },
     FindDetails: {screen: FindDetails },
+    MyPage: {screen: MyPage },
     
 },
 

@@ -60,28 +60,28 @@ export default class FindPage extends PureComponent{
                         <TouchableOpacity onPress = {() => {}}>
                             <View style = {styles.list_item_view}>
                                 <View style = {styles.image_view}>
-                                    <Image source ={require('./image/read_icon.png')} style = {{alignSelf:'center',width:30,height:30}}/>
+                                    <Image source ={require('./image/read_icon.png')} style = {styles.list_item_image}/>
                                     <Text style = {styles.list_text}>阅读</Text>
                                 </View>
-                                <Image source = {require('./image/more_icon.png')} style = {{alignSelf:'center', width:20,height:20}}/>
+                                <Image source = {require('./image/more_icon.png')} style = {styles.list_image}/>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity onPress = {() => {}}>
                             <View style = {styles.list_item_view}>
                                 <View style = {styles.image_view}>
-                                    <Image source ={require('./image/sport_icon.png')} style = {{alignSelf:'center',width:30,height:30}}/>
+                                    <Image source ={require('./image/sport_icon.png')} style = {styles.list_item_image}/>
                                     <Text style = {styles.list_text}>运动</Text>
                                 </View>
-                                <Image source = {require('./image/more_icon.png')} style = {{alignSelf:'center', width:20,height:20}}/>
+                                <Image source = {require('./image/more_icon.png')} style = {styles.list_image}/>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity onPress = {() => {}}>
                             <View style = {styles.list_item_view}>
                                 <View style = {styles.image_view}>
-                                    <Image source ={require('./image/game_icon.png')} style = {{alignSelf:'center',width:30,height:30}}/>
+                                    <Image source ={require('./image/game_icon.png')} style = {styles.list_item_image}/>
                                     <Text style = {styles.list_text}>游戏</Text>
                                 </View>
-                                <Image source = {require('./image/more_icon.png')} style = {{alignSelf:'center', width:20,height:20}}/>
+                                <Image source = {require('./image/more_icon.png')} style = {styles.list_image}/>
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -116,13 +116,12 @@ const styles = StyleSheet.create({
     },
     vertical_image:{
         alignSelf:'center',
-        width:45,
-        height:45
+        width:38,
+        height:38
     },
     vertical_text:{
         marginTop:5,
-        color:'black',
-        fontSize:16,
+        fontSize:15,
         textAlign:'center'
     },
     list_view:{
@@ -130,8 +129,8 @@ const styles = StyleSheet.create({
         marginTop:15,
     },
     list_item_view:{
-        paddingTop:8,
-        paddingBottom:8,
+        paddingTop:10,
+        paddingBottom:10,
         paddingLeft:15,
         paddingRight:15,
         flexDirection:'row',
@@ -145,9 +144,18 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignItems: 'center'
     },
+    list_item_image:{
+        alignSelf:'center',
+        width:20,
+        height:20
+    },
+    list_image:{
+        alignSelf:'center', 
+        width:15,
+        height:15
+    },
     list_text:{
-        color:'black',
-        fontSize:16,
+        fontSize:15,
         textAlign:'center',
         paddingLeft:8,
     },
