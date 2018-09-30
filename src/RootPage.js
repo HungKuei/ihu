@@ -49,18 +49,7 @@ const TabBar = TabNavigator (
 );
 
 const Navigator = StackNavigator({
-    Main: {
-        screen: TabBar,
-        navigationOptions:({navigation}) => ({
-            headerStyle: {
-                marginTop:25,
-                height:40,
-                backgroundColor: color.primary,
-                elevation: 0,
-                borderBottomWidth: 0,
-            },
-        })
-    },
+    Main: {screen: TabBar },
     DetailsPage: {screen: DetailsPage },
     FindDetails: {screen: FindDetails },
     MyPage: {screen: MyPage },
@@ -75,6 +64,13 @@ const Navigator = StackNavigator({
         showIcon:true,
         swipeEnabled:false,
         animationEnabled:false,
+        headerStyle: {
+            marginTop:24,
+            height:40,
+            backgroundColor: color.primary,
+            elevation: 0,
+            borderBottomWidth: 0,
+        },
     },
     headerMode: 'screen',
     initialRouteName: 'Main', // 默认先加载的页面组件

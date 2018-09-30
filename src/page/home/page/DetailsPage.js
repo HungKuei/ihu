@@ -19,13 +19,6 @@ export default class DetailsPage extends PureComponent{
                 navigation = {navigation}
             />
         ),
-        headerStyle: {
-            marginTop:25,
-            height:40,
-            backgroundColor: color.primary,
-            elevation: 0,
-            borderBottomWidth: 0,
-        },
     });
     render(){
         return(
