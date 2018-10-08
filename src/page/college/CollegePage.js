@@ -5,30 +5,25 @@ import {
     Text,
     Image
 } from 'react-native';
-import {NavigationItemTitle} from '../../widget/NavigationItems';
+import {NavigationItemTitle,NavigationItem} from '../../widget/NavigationItems';
 
 export default class CollegePage extends PureComponent{
 
-    static navigationOptions = {
-        tabBarLabel: '大学',
+    static navigationOptions = ({naviagtion}) => ({
         headerTitle:(
             <NavigationItemTitle
                 title = '我的大学'
             />
         ),
-        tabBarIcon: ({focused}) => {
-            if (focused) {
-                return (
-                    <Image style = {styles.tabBarIcon} source = {require('./image/college_selected_icon.png')}/>
-                );
-            }else{
-                return (
-                    <Image style = {styles.tabBarIcon} source = {require('./image/college_icon.png')}/>
-                );
-            }
-        }
-    }
-
+        headerLeft:(
+            <NavigationItem
+            />
+        ),
+        headerRight:(
+            <NavigationItem
+            />
+        ),
+    });
     render(){
         return(
             <View style = {styles.container}>

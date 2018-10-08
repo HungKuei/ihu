@@ -1,10 +1,14 @@
+import React from 'react';
 import {StackNavigator, TabNavigator, TabBarBottom} from 'react-navigation';
 import color from './widget/color';
+import TabBarItem from './widget/TabBarItem';
+import GuidePage from './page/launch/GuidePage';
 import HomePage from './page/home/HomePage';
 import FindPage from './page/find/FindPage';
 import CollegePage from './page/college/CollegePage';
 import MessagePage from './page/message/MessagePage';
 import MinePage from './page/mine/MinePage';
+import LoginPage from './page/login/LoginPage';
 import DetailsPage from './page/home/page/DetailsPage';
 import FindDetails from './page/find/page/FindDetails';
 import MyPage from './page/mine/page/MyPage';
@@ -13,11 +17,71 @@ import MyPage from './page/mine/page/MyPage';
 
 const TabBar = TabNavigator (
     {
-        Home: {screen: HomePage },
-        Find: {screen: FindPage },
-        College: {screen: CollegePage },
-        Message: {screen: MessagePage },
-        Mine: {screen: MinePage }, 
+        Home: {screen: HomePage,
+            navigationOptions: ({navigation}) => ({
+                tabBarLabel: '首页',
+                tabBarIcon: ({focused, tintColor}) => (
+                    <TabBarItem
+                        tintColor={tintColor}
+                        focused={focused}
+                        normalImage={require('./image/home_icon.png')}
+                        selectedImage={require('./image/home_selected_icon.png')}
+                    />
+                )
+            })
+        },
+        Find: {screen: FindPage,
+            navigationOptions: ({navigation}) => ({
+                tabBarLabel: '发现',
+                tabBarIcon: ({focused, tintColor}) => (
+                    <TabBarItem
+                        tintColor={tintColor}
+                        focused={focused}
+                        normalImage={require('./image/find_icon.png')}
+                        selectedImage={require('./image/find_selected_icon.png')}
+                    />
+                )
+            }) 
+        },
+        College: {screen: CollegePage,
+            navigationOptions: ({navigation}) => ({
+                tabBarLabel: '大学',
+                tabBarIcon: ({focused, tintColor}) => (
+                    <TabBarItem
+                        tintColor={tintColor}
+                        focused={focused}
+                        normalImage={require('./image/college_icon.png')}
+                        selectedImage={require('./image/college_selected_icon.png')}
+                    />
+                )
+            })
+        },
+        Message: {screen: MessagePage,
+            navigationOptions: ({navigation}) => ({
+                tabBarLabel: '消息',
+                tabBarIcon: ({focused, tintColor}) => (
+                    <TabBarItem
+                        tintColor={tintColor}
+                        focused={focused}
+                        normalImage={require('./image/message_icon.png')}
+                        selectedImage={require('./image/message_selected_icon.png')}
+                    />
+                )
+            })
+        },
+        Mine: {screen: MinePage,
+            navigationOptions: ({navigation}) => ({
+                tabBarLabel: '我的',
+                tabBarIcon: ({focused, tintColor}) => (
+                    <TabBarItem
+                        tintColor={tintColor}
+                        focused={focused}
+                        normalImage={require('./image/mine_icon.png')}
+                        selectedImage={require('./image/mine_selected_icon.png')}
+                    />
+                )
+            })
+        }, 
     },
     {
         tabBarComponent:TabBarBottom,
@@ -25,6 +89,7 @@ const TabBar = TabNavigator (
         tabBarPosition: 'bottom',        // 显示在底端，android 默认是显示在页面顶端的
         swipeEnabled: false,             // 是否可以左右滑动切换tab
         backBehavior: 'none',            // 按 back 键是否跳转到第一个Tab(首页)， none 为不跳转
+        initialRouteName: 'Home',        // 默认先加载的页面组件
         lazy:true,
         tabBarOptions: {
             activeTintColor: '#24a9a9',   // 文字和图片选中颜色
@@ -49,7 +114,9 @@ const TabBar = TabNavigator (
 );
 
 const Navigator = StackNavigator({
-    Main: {screen: TabBar },
+    Guide: {screen: GuidePage},
+    TabBar: {screen: TabBar },
+    Login: {screen: LoginPage},
     DetailsPage: {screen: DetailsPage },
     FindDetails: {screen: FindDetails },
     MyPage: {screen: MyPage },
@@ -73,7 +140,7 @@ const Navigator = StackNavigator({
         },
     },
     headerMode: 'screen',
-    initialRouteName: 'Main', // 默认先加载的页面组件
+    initialRouteName: 'Guide', // 默认先加载的页面组件
     mode: 'modal'       // 定义跳转风格(card、modal)
 });
 

@@ -6,7 +6,7 @@ import {
     Image,
     Dimensions
 } from 'react-native';
-import {NavigationItemTitle} from '../../widget/NavigationItems';
+import {NavigationItemTitle,NavigationItem} from '../../widget/NavigationItems';
 import color from '../../widget/color';
 
 
@@ -14,25 +14,21 @@ const {width, height} = Dimensions.get('window');
 export default class MessagePage extends PureComponent{
 
 
-    static navigationOptions = {
-        tabBarLabel: '消息',
+    static navigationOptions = ({navigation}) => ({
         headerTitle:(
             <NavigationItemTitle
                 title = '消息'
             />
         ),
-        tabBarIcon: ({focused}) => {
-            if (focused) {
-                return (
-                    <Image style = {styles.tabBarIcon} source = {require('./image/message_selected_icon.png')}/>
-                );
-            }else{
-                return (
-                    <Image style = {styles.tabBarIcon} source = {require('./image/message_icon.png')}/>
-                );
-            }
-        }
-    }
+        headerLeft:(
+            <NavigationItem
+            />
+        ),
+        headerRight:(
+            <NavigationItem
+            />
+        ),
+    });
 
     render(){
         return(

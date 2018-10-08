@@ -7,30 +7,26 @@ import {
     ScrollView,
     TouchableOpacity
 } from 'react-native';
-import {NavigationItemTitle} from '../../widget/NavigationItems';
+import {NavigationItemTitle,NavigationItem} from '../../widget/NavigationItems';
 
 
 export default class FindPage extends PureComponent{
 
-    static navigationOptions = {
-        tabBarLabel: '发现',
+    static navigationOptions = ({naviagtion}) => ({
         headerTitle:(
             <NavigationItemTitle
                 title = '校园圈子'
             />
         ),
-        tabBarIcon: ({focused}) => {
-            if (focused) {
-                return (
-                    <Image style = {styles.tabBar_icon} source = {require('./image/find_selected_icon.png')}/>
-                );
-            }else{
-                return (
-                    <Image style = {styles.tabBar_icon} source = {require('./image/find_icon.png')}/>
-                );
-            }
-        }
-    }
+        headerLeft:(
+            <NavigationItem
+            />
+        ),
+        headerRight:(
+            <NavigationItem
+            />
+        ),
+    });
 
     render(){
         return(

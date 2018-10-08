@@ -15,27 +15,15 @@ import {NavigationItemTitle, NavigationItem} from '../../widget/NavigationItems'
 const {width, height}  = Dimensions.get('window');
 export default class MinePage extends PureComponent{
 
-    static navigationOptions = {
-        tabBarLabel: '我的',
-        tabBarIcon: ({focused}) => {
-            if (focused) {
-                return (
-                    <Image style = {styles.tabBarIcon} source = {require('./image/mine_selected_icon.png')}/>
-                );
-            }else{
-                return (
-                    <Image style = {styles.tabBarIcon} source = {require('./image/mine_icon.png')}/>
-                );
-            }
-        },
-        headerLeft:(
-            <NavigationItem
-                
-            />
-        ),
+    static navigationOptions = ({navigation}) => ({
         headerTitle:(
             <NavigationItemTitle
                 title = '我的'
+            />
+        ),
+        headerLeft:(
+            <NavigationItem
+                
             />
         ),
         headerRight:(
@@ -44,7 +32,7 @@ export default class MinePage extends PureComponent{
             />
         )
        
-    }
+    });
 
     render(){
         return(

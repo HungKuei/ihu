@@ -11,32 +11,20 @@ import Swiper from 'react-native-swiper';
 
 import ThemeColor from '../../widget/color';
 import {NavigationItemTitle, NavigationItem} from '../../widget/NavigationItems';
+import color from '../../widget/color';
 
 const {width, height}  = Dimensions.get('window');
 export default class HomePage extends PureComponent{
 
 
-    static navigationOptions = {
-        //header: null,
-        tabBarLabel: '首页',
-        tabBarIcon: ({focused}) => {
-            if (focused) {
-                return (
-                    <Image style = {styles.tabBarIcon} source = {require('./image/home_selected_icon.png')}/>
-                );
-            }else{
-                return (
-                    <Image style = {styles.tabBarIcon} source = {require('./image/home_icon.png')}/>
-                );
-            }
-        },
-        headerLeft:(
-            <NavigationItem
-            />
-        ),
+    static navigationOptions = ({navigation}) => ({
         headerTitle:(
             <NavigationItemTitle
                 title = '首页'
+            />
+        ),
+        headerLeft:(
+            <NavigationItem
             />
         ),
         headerRight:(
@@ -44,7 +32,7 @@ export default class HomePage extends PureComponent{
                 icon = {require('./image/search_icon.png')}
             />
         ),
-    }
+    });
 
 
     render(){
@@ -53,12 +41,13 @@ export default class HomePage extends PureComponent{
             <View style = {styles.container}>
             <StatusBar 
                     translucent = {true}
+                    hidden={false}
                     animated = {true}
                     barStyle = {'light-content'}
                     backgroundColor = {ThemeColor.primary}/>
             <View style={styles.swiper}>
                     <Swiper
-                        height={200}                                           //组件高度
+                        height={120}                                           //组件高度
                         loop={true}                                            //如果设置为false，那么滑动到最后一张时，再次滑动将不会滑到第一张图片。
                         autoplay={true}                                        //自动轮播
                         autoplayTimeout={4}                                    //每隔4秒切换
@@ -69,6 +58,7 @@ export default class HomePage extends PureComponent{
                         dot={<View style={styles.dotStyle}/>}                  //未选中的圆点样式  
                         activeDot={<View style={styles.activeDotStyle}/>}      //选中的圆点样式              
                     >
+                        <Image source={require('./image/swiper_0.png')} style={styles.img}/>
                         <Image source={require('./image/swiper_1.png')} style={styles.img}/>
                         <Image source={require('./image/swiper_2.png')} style={styles.img}/>
                         <Image source={require('./image/swiper_3.png')} style={styles.img}/>
@@ -93,29 +83,29 @@ const styles = StyleSheet.create({
     },
     img: {
         width: width,
-        height: 150,
+        height: 120,
     },
     swiper: {
         width: width,
-        height: 150,
+        height: 120,
     },
     dotStyle:{
-        backgroundColor: 'rgba(0,0,0,.2)',
+        backgroundColor: 'rgba(255,255,255,0.8)',
         width: 10,
         height: 10,
         borderRadius: 50,
-        marginLeft: 8,
-        marginRight: 8,
+        marginLeft: 4,
+        marginRight: 4,
         marginTop: 9,
         marginBottom: 5,
     },
     activeDotStyle:{
-        backgroundColor: '#fff',
+        backgroundColor: color.theme,
         width: 10,
         height: 10,
         borderRadius: 50,
-        marginLeft: 8,
-        marginRight: 8,
+        marginLeft: 4,
+        marginRight: 4,
         marginTop: 9,
         marginBottom: 5,
     },
