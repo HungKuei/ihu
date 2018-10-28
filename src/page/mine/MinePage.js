@@ -55,26 +55,49 @@ export default class MinePage extends PureComponent{
                     <View style = {styles.nav_view}>
                         <TouchableOpacity onPress = {() => {}}>
                             <View style = {styles.nav_item_view}>
-                                <Image style = {styles.nav_image} source = {require('./image/courses_icon.png')}/>
-                                <Text style = {styles.nav_text} >课程表</Text>
+                                <View style = {{flexDirection:'row',alignItems:'center'}}>
+                                    <Image style = {styles.nav_image} source = {require('./image/student_card.png')}/>
+                                    <Text style = {styles.nav_text}>学生证</Text>
+                                </View>
+                                <Image style = {styles.nav_item_icon} source = {require('../../image/more_icon.png')}/>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity onPress = {() => {}}>
                             <View style = {styles.nav_item_view}>
-                                <Image style = {styles.nav_image} source = {require('./image/dowload_icon.png')}/>
-                                <Text style = {styles.nav_text} >下载管理</Text>
+                                <View style = {{flexDirection:'row',alignItems:'center'}}>
+                                    <Image style = {styles.nav_image} source = {require('./image/campus_card.png')}/>
+                                    <Text style = {styles.nav_text}>校园卡</Text>
+                                </View>
+                                <Image style = {styles.nav_item_icon} source = {require('../../image/more_icon.png')}/>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity onPress = {() => {}}>
+                        <View style = {[styles.nav_item_view,{borderBottomWidth:0}]}>
+                                <View style = {{flexDirection:'row',alignItems:'center'}}>
+                                    <Image style = {styles.nav_image} source = {require('./image/schedule_card.png')}/>
+                                    <Text style = {styles.nav_text}>课程表</Text>
+                                </View>
+                                <Image style = {styles.nav_item_icon} source = {require('../../image/more_icon.png')}/>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                    <View style = {styles.nav_view}>
+                        <TouchableOpacity onPress = {() => {}}>
                             <View style = {styles.nav_item_view}>
-                                <Image style = {styles.nav_image} source = {require('./image/collection_icon.png')}/>
-                                <Text style = {styles.nav_text} >收藏</Text>
+                                <View style = {{flexDirection:'row',alignItems:'center'}}>
+                                    <Image style = {styles.nav_image} source = {require('./image/feedback.png')}/>
+                                    <Text style = {styles.nav_text}>意见反馈</Text>
+                                </View>
+                                <Image style = {styles.nav_item_icon} source = {require('../../image/more_icon.png')}/>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity onPress = {() => {}}>
-                            <View style = {styles.nav_item_view}>
-                                <Image style = {styles.nav_image} source = {require('./image/note_icon.png')}/>
-                                <Text style = {styles.nav_text} >我的笔记</Text>
+                            <View style = {[styles.nav_item_view,{borderBottomWidth:0}]}>
+                                <View style = {{flexDirection:'row',alignItems:'center'}}>
+                                    <Image style = {styles.nav_image} source = {require('./image/set_icon.png')}/>
+                                    <Text style = {styles.nav_text}>设置</Text>
+                                </View>
+                                <Image style = {styles.nav_item_icon} source = {require('../../image/more_icon.png')}/>
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -116,21 +139,31 @@ const styles = StyleSheet.create({
     },
     nav_view:{
         width:width,
-        padding:15,
+        paddingLeft:15,
+        marginTop:10,
         backgroundColor:'#fff',
-        flexDirection:'row',
-        alignItems:'center',
-        justifyContent:'space-between'
     },
     nav_item_view:{
+        flex:1,
+        flexDirection:'row',
+        height:40,
+        borderBottomWidth:1,
         alignItems:'center',
-        justifyContent:'center'
+        borderBottomColor:color.border,
+        justifyContent:'space-between'
     },
     nav_image:{
         width:25,
         height:25,
     },
+    nav_item_icon:{
+        width:16,
+        height:16,
+        marginRight:10
+    },
     nav_text:{
-        paddingTop:10,
+        fontSize:16,
+        color:'#333',
+        paddingLeft:10,
     },
 });
